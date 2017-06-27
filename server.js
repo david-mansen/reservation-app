@@ -24,7 +24,7 @@ var reservations = [{
 
 // sets up pathing to html file
 app.get("/", function(req, res){
-	res.sendFile(path.join(__dirname, "index.html"))
+	res.sendFile(path.join(__dirname, "/assets/html/index.html"))
 
 });
 
