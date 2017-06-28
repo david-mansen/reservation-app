@@ -40,10 +40,9 @@ app.get("/table", function(req, res){
 //api routes
 // show all reservations
 app.get("/api/tables", function(req, res){
-	for (var i = 0; i < reservations.length; i++){
-		return res.json(reservations[i]);
-	}
+
 	return res.json(reservations);
+
 });
 
 // create new reservations
@@ -59,22 +58,23 @@ app.post("/api/reserve", function(req, res){
 	//display the json to the users
 	res.json(newreservation);
 
+//	var waitlist = [];
+
+//	if (reservations.length > 5){
+//		waitlist.push(newreservation);
+//	};
+
+
 });
+
+//app.get("/api/waitlists", function(req, res){
+//	waitlist;
+//});
 
 
 //starts the server to begin listening
 app.listen(PORT, function(){
 	console.log("App listening on PORT " + PORT);
 });
-
-
-//PSEUDO CODE
-// store data from user input
-
-
-
-
-
-
 
 
