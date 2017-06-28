@@ -15,21 +15,39 @@ app.use(bodyParser.json({
 }));
 
 var reservations = [{
-	name: "Brianna",
-	number: "9546217111",
-	email: "briannadunaj@gmail.com",
-	id: "1"
+	"name": "Brianna",
+	"number": "9546217111",
+	"email": "briannadunaj@gmail.com",
+	"id": "1"
 
 }];
 
+//html routes
 // sets up pathing to html file
 app.get("/", function(req, res){
-	res.sendFile(path.join(__dirname, "index.html"))
+	res.sendFile(path.join(__dirname, "assets/html/index.html"));
 
 });
 
+app.get("/reserve", function(req, res){
+	res.sendFile(path.join(__dirname, "assets/html/reserve.html"));
+});
+
+app.get("/table", function(req, res){
+	res.sendFile(path.join(__dirname, "assets/html/table.html"));
+});
+
+//api routes
+// show all reservations
+app.get("/api/tables", function(req, res){
+	for (var i = 0; i < reservations.length; i++){
+		return res.json(reservations[i]);
+	}
+	return res.json(reservations);
+});
+
 // create new reservations
-app.post("/api/new", function(req, res){
+app.post("/api/reserve", function(req, res){
 
 	//save json post sent from user 
 	var newreservation = req.body;
